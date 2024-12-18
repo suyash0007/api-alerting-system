@@ -5,12 +5,13 @@ const getMetrics = async (req, res) => {
   const filter = ip ? { ip } : {};
   try {
     const metrics = await FailureLog.find(filter);
+     res.json(metrics);
     
   } catch (error) {
     console.err(error)
   }
   
-  res.json(metrics);
+ 
 };
 
 module.exports = { getMetrics };
